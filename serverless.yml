@@ -1,0 +1,24 @@
+service: db-backup-cron
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  # Configure AWS profile
+  profile: default
+  runtime: nodejs16.x
+  iam:
+    role:
+      statements:
+        # Allow functions to get parameter store value
+        - Effect: Allow
+          Action:
+            - ssm:GetParameter
+          Resource: arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/lambda-ssh-key
+
+functions:
+  dbBackupCronHandler:
+    handler: index.run
+    events:
+      # Invoke Lambda function every Sunday at 4:05 AM (UTC)
+      # https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions
+      - schedule: cron(5 4 ? * SUN *)
