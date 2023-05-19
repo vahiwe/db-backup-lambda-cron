@@ -1,4 +1,4 @@
-service: db-backup-cron
+service: db-backup
 frameworkVersion: '3'
 
 provider:
@@ -16,8 +16,10 @@ provider:
           Resource: arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/lambda-ssh-key
 
 functions:
-  dbBackupCronHandler:
+  # Lambda function to run backup script
+  dbBackupHandler:
     handler: index.run
+    timeout: 900 # 15 minutes
     events:
       # Invoke Lambda function every Sunday at 4:05 AM (UTC)
       # https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions

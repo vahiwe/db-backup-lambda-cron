@@ -87,4 +87,5 @@ module.exports.run = async () => {
   await exec('rm /tmp/'+backupName);
 
   console.log(`Your cron function ran at ${time}`);
+  return "Success";
 };
