@@ -11,8 +11,8 @@ To get started with this project, you'll need to have Node.js and npm installed 
 Once you have Node.js and npm installed, you can clone this repository and install the dependencies by running the following commands:
   
   ```bash
-  git clone https://github.com/vahiwe/serverless-aws-node-scheduled-cron.git
-  cd serverless-aws-node-scheduled-cron
+  git clone https://github.com/vahiwe/serverless-aws-lambda-scheduled-cron.git
+  cd serverless-aws-lambda-scheduled-cron
   npm install
   ```
 
