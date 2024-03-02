@@ -11,7 +11,7 @@ To get started with this project, you'll need to have Node.js and npm installed 
 Once you have Node.js and npm installed, you can clone this repository and install the dependencies by running the following commands:
   
   ```bash
-  git clone https://github.com/vahiwe/db-backup-lambda-cron.git
+  git clone https://github.com/vahiwe/serverless-aws-node-scheduled-cron.git
   cd db-backup-lambda-cron
   npm install
   ```
@@ -26,6 +26,7 @@ Once you have Node.js and npm installed, you can clone this repository and insta
   - `DB_PORT` - The database port
   - `SFTP_HOST` - The sftp host
   - `SFTP_USER` - The sftp user
+  - `NUM_BACKUPS` - The number of backups to keep on the server
 - The above mentioned environment variables should be set in the AWS console after deploying the lambda function. Do not set them in `serverless.yml` as they will be exposed in the repository.
 
 ### Additional things to note

@@ -61,9 +61,11 @@ module.exports.run = async () => {
     await sftp.connect(sftpConfig);
     // Create backup directory
     await sftp.mkdir('/tmp/backups', true);
+    // Number of backups to keep
+    const maxBackups = process.env.NUM_BACKUPS || 10;
     // check if backups are more than 10
     const backups = await sftp.list('/tmp/backups');
-    if (backups.length > 10) {
+    if (backups.length > maxBackups) {
       // sort backups by date
       backups.sort((a, b) => {
         return new Date(a.modifyTime) - new Date(b.modifyTime);
