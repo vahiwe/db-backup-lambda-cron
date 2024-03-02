@@ -12,7 +12,7 @@ Once you have Node.js and npm installed, you can clone this repository and insta
   
   ```bash
   git clone https://github.com/vahiwe/serverless-aws-node-scheduled-cron.git
-  cd db-backup-lambda-cron
+  cd serverless-aws-node-scheduled-cron
   npm install
   ```
 
